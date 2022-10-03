@@ -16,6 +16,7 @@ ingredients.forEach((ingredient) => {
 
 console.log(products);
 
+// vtoroy sposob
 // ingredients.map(ingredient => {
 //   const listItemEl = document.createElement("li");
 
