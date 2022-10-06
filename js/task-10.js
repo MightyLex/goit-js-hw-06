@@ -18,23 +18,25 @@ inputRef.addEventListener('change', (event) => {
   
 })
 
+let boxContainer = []
 
 function createBoxes(amount) {
-  // console.log(amount);
+
   for (let i = 0; i < amount; i += 1) {
-    // boxAreaRef.insertAdjacentHTML('afterbegin', '<div class="addedDiv">')
+
     const newDiv = document.createElement('div')
     const color = getRandomHexColor()
     newDiv.classList.add('addedDiv')
 
-    const size = 30+10*i
-    // console.log(size);
+    const size = 30+10*i  
     newDiv.style.width = size +"px";
     newDiv.style.height = size +"px";
-    newDiv.style.backgroundColor = color;  
-    boxAreaRef.prepend(newDiv)
+    newDiv.style.backgroundColor = color;
+    boxContainer.push(newDiv)  
     
   }
+
+  boxAreaRef.append(...boxContainer)
 }
 
 
@@ -43,5 +45,7 @@ function createBoxes(amount) {
 dstrBtnRef.addEventListener('click', destroyBoxes)
 
 function destroyBoxes() {
-  boxAreaRef.innerHTML = ''
+  boxAreaRef.innerHTML = '';
+  boxContainer = [];
+  
 }
